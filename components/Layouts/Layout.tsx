@@ -1,6 +1,5 @@
 import React, { ReactNode } from "react";
 import { Inter } from 'next/font/google'
-import styles from '@/styles/Home.module.css'
 
 import BucketHead from "./Head";
 import Header from "./Header";
@@ -18,13 +17,12 @@ const Layout = ({children}: Props) => {
   return (
     <>
     <BucketHead appName='X-Bucket' />
-    <main className={`${styles.main} ${inter.className}`}>
-        <Header />
-
+    <Header>
+      <main className={`${inter.className} bg-white text-black`}>
         {children}
-
-        <Footer />
-    </main>
+      </main>
+    </Header>
+    <Footer />
     </>
   );
 

@@ -10,6 +10,7 @@ const Modal = () => {
       
       {/* register section */}
       <Register />
+      
     </>
   )
 }

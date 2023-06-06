@@ -6,11 +6,9 @@ import Pricing from "@/components/Pricing";
 import Contact from "@/components/Contact";
 import Hero from "@/components/Hero";
 
+import { sitedetails } from '@/services/default'
+
 export default function Home() {
-  const sitedetails = {
-    title: "X-Bucket",
-    email: "support@xbucket.com"
-  }
   return (
     <Layout>
       <Hero />

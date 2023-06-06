@@ -1,20 +1,25 @@
 import React from "react";
+import Input from "./Layouts/Input";
+import Button from "./Layouts/Button";
 
 function Login() {
+  const loginUser = () => {
+
+  } 
+  
   return (
     <>
       <dialog
         id="login"
         className="modal modal-bottom sm:modal-middle"
       >
-        <form method="dialog" className="modal-box">
+        <form method="post" onSubmit={loginUser} className="modal-box">
           <h3 className="font-bold text-lg">Login!</h3>
-          <p className="py-4">
-            Press ESC key or click the button below to close
-          </p>
+          <div className="mt-5">
+            <Input type="text" name="xtifier" placeholder="Xitifier E.g xanta, xanta@com.com, 77777" />
+          </div>
           <div className="modal-action">
-            {/* if there is a button in form, it will close the modal */}
-            <button className="btn">Close</button>
+            <Button>Continue</Button>
           </div>
         </form>
       </dialog>

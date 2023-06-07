@@ -36,5 +36,4 @@ export interface IRegister {
     password: string;
     c_password: string;
     ip_address: string;
-    avatar: string;
 }

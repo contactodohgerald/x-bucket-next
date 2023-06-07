@@ -3,6 +3,7 @@ import AboutUs from '@/components/AboutUs'
 import Layout from '@/components/Layouts/Layout'
 import { sitedetails } from '@/services/default'
 import HeroTwo from '@/components/HeroTwo'
+import Products from '@/components/Products'
 
 export default function About() {
   return (
@@ -10,6 +11,7 @@ export default function About() {
     <Layout>
         <HeroTwo>About Us</HeroTwo>
         <AboutUs details={sitedetails} />
+        <Products details={sitedetails} />    
     </Layout>
     </>
   )

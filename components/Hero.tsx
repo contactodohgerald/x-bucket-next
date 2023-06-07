@@ -11,7 +11,7 @@ function Hero({details}: Props) {
   return (
     <>
       <div className="hero min-h-screen bg-[url('/used/hero.png')]">
-        <div className="z-10 px-4 sm:px-6 lg:px-8">
+        <div className="z-5 px-4 sm:px-6 lg:px-8">
             <div className="text-center">
               <h2 className="mb-6 text-4xl font-medium leading-10 tracking-tight text-gray-50 md:text-6xl">
                 Story / Joke Telling and Recipe Generation
@@ -21,12 +21,12 @@ function Hero({details}: Props) {
               </p>
               <div className="justify-center sm:flex">
                 <div className="">
-                  <button
-                    onClick={() => window.register.showModal()}
+                  <Link
+                    href={'register'}
                     className="flex items-center justify-center w-full px-8 py-3 text-gray-100 bg-blue-600 rounded-md shadow hover:bg-blue-500 "
                 >
                     Get started
-                </button>
+                </Link>
                 </div>
                 <div className="mt-3 sm:mt-0 sm:ml-3">
                   <Link

@@ -56,13 +56,13 @@ function Pricing({ details }: Props) {
                 </div>
                 <div className="flex flex-col items-center border-b-2 border-orange-200  bg-gradient-to-r dark:from-gray-800 dark:to-gray-800 from-blue-100 to-gray-200 ">
                   <div className="relative w-full">
-                    <div className="absolute inset-0 z-10 w-full h-full bg-green-900 opacity-40"></div>
+                    <div className="absolute inset-0 z-5 w-full h-full bg-green-900 opacity-40"></div>
                     <img
                       src="https://i.postimg.cc/NfNC77Dr/C4-D-018-10.jpg"
                       alt=""
                       className="relative inset-0 z-0 object-cover w-full h-44"
                     />
-                    <div className="absolute inset-0 z-10 grid place-items-center">
+                    <div className="absolute inset-0 z-5 grid place-items-center">
                       <div className="">
                         <span className="relative text-2xl font-bold text-gray-200 -top-6 right-1">
                           NGN
@@ -77,7 +77,7 @@ function Pricing({ details }: Props) {
                     </div>
                   </div>
                   <div className="relative flex -mt-7">
-                    <div className="z-10 flex items-center justify-center px-6 py-2 text-center rounded-md">
+                    <div className="z-5 flex items-center justify-center px-6 py-2 text-center rounded-md">
                       <form onSubmit={processSubscription} className="dark:bg-gray-100 px-1 py-1 rounded-full">
                         {" "}
                         {loader ? <Spinner/> :  <Button _type="norm">Proceed {" ->"}</Button>}

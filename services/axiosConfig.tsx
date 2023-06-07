@@ -1,8 +1,9 @@
 import axios from "axios";
+import { loggedInUser } from "./default";
 
 const baseURL = "http://127.0.0.1:8080/api/v1";
 
-const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1dWlkIjoiNjQ3YmEzZDU5OGNhZDE1NGI5N2ViZWIxIiwieHRpZmllciI6InhhbnRhLWFkbWluIiwiaXBBZGRyZXNzIjoiMTA1LjExMi4xNzcuMjI4IiwiaWF0IjoxNjg1ODI0Njg0LCJleHAiOjE2ODYyNTY2ODR9.pCrQ6ujGSGeRYVfj679Yz2Zn2ao8parHWfGDoscNglU'
+const userLoggedIn = loggedInUser()
 
 const axiosInstance = axios.create({
   baseURL: baseURL,
@@ -14,7 +15,7 @@ const axiosInstance = axios.create({
 
 axiosInstance.interceptors.request.use(
     (config) => {
-      config.headers.Authorization = token ? `Bearer ${token}` : '';
+      config.headers.Authorization = userLoggedIn ? `Bearer ${userLoggedIn.token}` : '';
       return config;
     },
     (error) => {

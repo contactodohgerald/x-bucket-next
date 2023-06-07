@@ -135,9 +135,9 @@ const Footer = () => {
               <div className="w-full px-4 mb-2 lg:mb-0 md:w-1/2 lg:w-4/12">
               <Link href={'./'}>
                 <Image
-                    src="/used/Logo.svg"
+                    src="/used/logo.png"
                     alt="Logo"
-                    className="dark:invert mb-5"
+                    className="mb-5"
                     width={100}
                     height={24}
                     style={{ width: 100, height: 24 }}

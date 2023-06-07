@@ -13,7 +13,6 @@ function Register() {
     xtifier: "",
     password: "",
     c_password: "",
-    avatar: "xitifier-main"
   });
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     setFormData({
@@ -37,8 +36,7 @@ function Register() {
       setFormData({
         xtifier: "",
         password: "",
-        c_password: "",
-        avatar: ""
+        c_password: ""
       });
     })
     .catch((err) => {
@@ -64,9 +62,6 @@ function Register() {
             <h3 className="text-3x1">Register User</h3>
             <div className="">
               <form onSubmit={registerUser} className="p-0 m-0">
-                <div>
-                  Avatars
-                </div>
                 <div className="mt-5">
                   <Input
                     value={formData.xtifier}

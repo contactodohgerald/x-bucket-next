@@ -35,9 +35,9 @@ const Header = ({ children }: Props) => {
             <div className="flex-1 px-2 mx-2">
               <Link href={"./"}>
                 <Image
-                  src="/used/Logo.svg"
+                  src="/used/logo.png"
                   alt="Logo"
-                  className="dark:invert"
+                  className=""
                   width={100}
                   height={24}
                   style={{ width: 100, height: 24 }}
@@ -49,6 +49,9 @@ const Header = ({ children }: Props) => {
               <ul className="menu menu-horizontal">
                 {/* Navbar menu content here */}
                 <li>
+                  <Link href={"services"}>Services</Link>
+                </li> 
+                <li>
                   <Link href={"about"}>About</Link>
                 </li>
                 <li>
@@ -59,7 +62,7 @@ const Header = ({ children }: Props) => {
                 </li>
                 <li>
                   <Link
-                    href={'login'}
+                    href={"login"}
                     className="inline-block w-full px-4 py-3 mr-2 text-xs font-semibold leading-none text-center rounded-full dark:hover:bg-blue-500 dark:bg-blue-700"
                   >
                     Login
@@ -74,32 +77,30 @@ const Header = ({ children }: Props) => {
         </div>
         <div className="drawer-side">
           <label htmlFor="my-drawer-3" className="drawer-overlay"></label>
-          <ul className="menu p-4 w-80 h-full bg-base-200">
+          <ul className="menu p-4 w-80 h-full bg-gray-900 z-0">
             {/* Sidebar content here */}
-            <li>
+            <li className="border dark:border-gray-100 hover:border-gray-500 m-1 rounded-lg">
+              <Link href={"./"}>Home</Link>
+            </li>
+            <li className="border dark:border-gray-100 hover:border-gray-500 m-1 rounded-lg">
+              <Link href={"services"}>Services</Link>
+            </li>
+            <li className="border dark:border-gray-100 hover:border-gray-500 m-1 rounded-lg">
               <Link href={"about"}>About</Link>
             </li>
-            <li>
+            <li className="border dark:border-gray-100 hover:border-gray-500 m-1 rounded-lg">
               <Link href={"pricing"}>Pricing</Link>
             </li>
-            <li>
+            <li className="border dark:border-gray-100 hover:border-gray-500 m-1 rounded-lg">
               <Link href={"contact"}>Contact</Link>
             </li>
             <li>
-              <a
-                onClick={() => window.login.showModal()}
+              <Link
+                href={"login"}
                 className="inline-block w-full px-4 py-3 mr-2 text-xs font-semibold leading-none text-center rounded-full dark:hover:bg-blue-500 dark:bg-blue-700"
               >
                 Login
-              </a>
-            </li>
-            <li>
-              <a
-                onClick={() => window.login.showModal()}
-                className="inline-block w-full px-4 py-3 mr-2 text-xs font-semibold leading-none text-center rounded-full dark:hover:bg-blue-500 dark:bg-blue-700"
-              >
-                Get Started
-              </a>
+              </Link>
             </li>
           </ul>
         </div>

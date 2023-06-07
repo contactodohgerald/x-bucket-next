@@ -5,8 +5,11 @@ import Link from "next/link";
 import Spinner from "./Layouts/Spinner";
 import { toast } from "react-toastify";
 import { login } from "@/services/post.request";
+import { loginStuffs } from "@/services/default";
+import Products from "./Products";
 
 function Login() {
+  const [isLoggedIn, setIsLoggedIn] = useState(false)
   const [loader, setLoader] = useState(false)
   const [formData, setFormData] = useState({
     xtifier: "",
@@ -27,6 +30,10 @@ function Login() {
     await login(formData)
     .then((res) => {
       toast.success(res.data.message)
+      loginStuffs(JSON.stringify(res.data.data))
+      setTimeout(() => {
+        setIsLoggedIn(true)
+      }, 3000);
       setFormData({
         xtifier: "",
         password: ""
@@ -40,6 +47,8 @@ function Login() {
 
   return (
     <>
+    {isLoggedIn ?  
+      <Products /> : 
       <section className="w-full bg-[url('/used/food-storytelling.png')] py-20">
         <div className="hidden py-20 text-center lg:block">
          
@@ -54,6 +63,7 @@ function Login() {
                 Register Account
               </Link>
             </span>
+            <h3 className="text-3x1">User Login</h3>
             <div className="">
               <form onSubmit={loginUser} className="p-0 m-0">
                 <div className="mt-5">
@@ -82,6 +92,7 @@ function Login() {
           </div>
         </div>
       </section>
+      }
     </>
   );
 }

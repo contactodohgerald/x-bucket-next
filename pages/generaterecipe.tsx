@@ -2,7 +2,7 @@ import Layout from "@/components/Layouts/Layout";
 import RecipeGenerate from "@/components/RecipeGenerate";
 import React from "react";
 
-export default function generaterecipe() {
+export default function GenerateRecipe() {
   return (
     <>
       <Layout>

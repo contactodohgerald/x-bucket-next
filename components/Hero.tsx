@@ -1,7 +1,13 @@
 import Link from "next/link";
 import React from "react";
 
-function Hero() {
+interface Props {
+  details?: {
+      title: string
+  }
+}
+
+function Hero({details}: Props) {
   return (
     <>
       <div className="hero min-h-screen bg-[url('/used/hero.png')]">
@@ -11,7 +17,7 @@ function Hero() {
                 Story / Joke Telling and Recipe Generation
               </h2>
               <p className="mb-6 tracking-wide text-gray-200 sm:mt-5 sm:text-md sm:max-w-xl sm:mx-auto md:mt-5">
-                X-Bucket harnesses the power of AI to provide unique and engaging experiences in the realms of storytelling, joke telling, and recipe generation.
+                {details?.title} harnesses the power of AI to provide unique and engaging experiences in the realms of storytelling, joke telling, and recipe generation.
               </p>
               <div className="justify-center sm:flex">
                 <div className="">

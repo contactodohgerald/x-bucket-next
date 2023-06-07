@@ -1,3 +1,4 @@
+import axios from 'axios'
 
 export  const sitedetails = {
     title: "X-Bucket",
@@ -12,3 +13,8 @@ export const countries = [
     {name: "United kingdom", value: "United Kingdom"},
     {name: "Others", value: "other countries"},
 ]
+
+export const getUserIp = async () => {
+    const res = await axios.get("https://api.ipify.org/?format=json");
+    return res.data.ip;
+}

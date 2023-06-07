@@ -1,8 +1,10 @@
-import React, { ReactNode } from "react";
+import React, { ChangeEventHandler, ReactNode } from "react";
 
 interface Props {
     children: ReactNode;
-    name: string
+    name: string;
+    value: string;
+    onChange: ChangeEventHandler<HTMLSelectElement>;
 }
 
 function Select({children, ...props}: Props) {

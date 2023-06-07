@@ -2,7 +2,7 @@ import Joketelling from "@/components/Joketelling";
 import Layout from "@/components/Layouts/Layout";
 import React from "react";
 
-export default function joketelling() {
+export default function JokeTelling() {
   return (
     <>
       <Layout>

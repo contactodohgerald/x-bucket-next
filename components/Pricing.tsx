@@ -1,4 +1,8 @@
-import React from "react";
+import React, { FormEvent, useState } from "react";
+import Button from "./Layouts/Button";
+import Spinner from "./Layouts/Spinner";
+import { subscribeUser } from "@/services/post.request";
+import { toast } from "react-toastify";
 
 interface Props {
   details?: {
@@ -7,6 +11,23 @@ interface Props {
 }
 
 function Pricing({ details }: Props) {
+  const [loader, setLoader] = useState(false)
+  const formData = {
+    trans_id: "4293578",
+    amount: 300
+  }
+  const processSubscription = async (e: FormEvent) => {
+    e.preventDefault()
+    setLoader(true)
+    await subscribeUser(formData)
+    .then((res) => {
+      toast.success(res.data.message)
+    })
+    .catch((err) => {
+      toast.error(err.response.data.message)
+    })
+    .finally(() => setLoader(false))
+  }
   return (
     <>
       <section className="flex bg-gray-100">
@@ -56,13 +77,11 @@ function Pricing({ details }: Props) {
                     </div>
                   </div>
                   <div className="relative flex -mt-7">
-                    <div className="z-10 flex items-center justify-center px-6 py-2 text-center rounded-md bg-gray-900 hover:bg-gray-700">
-                      <a href="" className="">
+                    <div className="z-10 flex items-center justify-center px-6 py-2 text-center rounded-md">
+                      <form onSubmit={processSubscription} className="dark:bg-gray-100 px-1 py-1 rounded-full">
                         {" "}
-                        <span className="relative text-xl font-medium text-gray-700 dark:text-gray-400 ">
-                          Continue {" ->"}
-                        </span>
-                      </a>
+                        {loader ? <Spinner/> :  <Button _type="norm">Proceed {" ->"}</Button>}
+                      </form>
                     </div>
                   </div>
                   <ul className="mt-6 mb-4 lg:py-2 lg:self-center">

@@ -1,9 +1,8 @@
-import HeroTwo from "@/components/HeroTwo";
 import Layout from "@/components/Layouts/Layout";
 import Storytelling from "@/components/Storytelling";
 import React from "react";
 
-export default function storytelling() {
+export default function StoryTelling() {
   return (
     <>
       <Layout>

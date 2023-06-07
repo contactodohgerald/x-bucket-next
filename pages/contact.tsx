@@ -1,15 +1,15 @@
-import Contact from "@/components/Contact";
+import Contacts from "@/components/Contact";
 import HeroTwo from "@/components/HeroTwo";
 import Layout from "@/components/Layouts/Layout";
 import { sitedetails } from "@/services/default";
 import React from "react";
 
-export default function contact() {
+export default function Contact() {
   return (
     <>
       <Layout>
         <HeroTwo>Contact Us</HeroTwo>
-        <Contact details={sitedetails} />
+        <Contacts details={sitedetails} />
       </Layout>
     </>
   );

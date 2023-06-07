@@ -4,7 +4,7 @@ import Layout from '@/components/Layouts/Layout'
 import { sitedetails } from '@/services/default'
 import HeroTwo from '@/components/HeroTwo'
 
-export default function about() {
+export default function About() {
   return (
     <>
     <Layout>

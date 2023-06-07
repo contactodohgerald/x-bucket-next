@@ -14,7 +14,7 @@ const Header = ({ children }: Props) => {
         <input id="my-drawer-3" type="checkbox" className="drawer-toggle" />
         <div className="drawer-content flex flex-col">
           {/* Navbar */}
-          <div className="w-full navbar bg-gray-900 px-24">
+          <div className="w-full navbar bg-gray-900 lg:px-24">
             <div className="flex-none lg:hidden">
               <label htmlFor="my-drawer-3" className="btn btn-square btn-ghost">
                 <svg
@@ -40,6 +40,7 @@ const Header = ({ children }: Props) => {
                   className="dark:invert"
                   width={100}
                   height={24}
+                  style={{ width: 100, height: 24 }}
                   priority
                 />
               </Link>
@@ -57,12 +58,12 @@ const Header = ({ children }: Props) => {
                   <Link href={"contact"}>Contact</Link>
                 </li>
                 <li>
-                  <a
-                    onClick={() => window.login.showModal()}
+                  <Link
+                    href={'login'}
                     className="inline-block w-full px-4 py-3 mr-2 text-xs font-semibold leading-none text-center rounded-full dark:hover:bg-blue-500 dark:bg-blue-700"
                   >
                     Login
-                  </a>
+                  </Link>
                 </li>
               </ul>
             </div>

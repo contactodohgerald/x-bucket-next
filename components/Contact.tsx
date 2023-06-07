@@ -1,7 +1,10 @@
-import React from "react";
+import React, { ChangeEvent, FormEvent, useState } from "react";
 import Input from "./Layouts/Input";
 import Textarea from "./Layouts/Textarea";
 import Button from "./Layouts/Button";
+import Spinner from "./Layouts/Spinner";
+import { toast } from "react-toastify";
+import { enquiry } from "@/services/post.request";
 
 interface Props {
   details?: {
@@ -11,6 +14,42 @@ interface Props {
 }
 
 function Contact({ details }: Props) {
+  const [loader, setLoader] = useState(false);
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    subject: "",
+    message: "",
+  });
+  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
+    setFormData({
+      ...formData,
+      [event.target.name]: event.target.value,
+    });
+  };
+
+  const sendEnquiry = async (e: FormEvent) => {
+    e.preventDefault()
+
+    if(formData.email == '' || formData.subject == '' || formData.message == '') return toast.error('Fileds can`t be empty')
+
+    setLoader(true)
+    await enquiry(formData)
+    .then((res) => {
+      toast.success(res.data.message)
+      setFormData({
+        name: "",
+        email: "",
+        subject: "",
+        message: "",
+      });
+    })
+    .catch((err) => {
+      toast.error(err.response.data.message)
+    })
+    .finally(() => setLoader(false))
+  }
+
   return (
     <>
       <section className="py-16 bg-gray-100 font-poppins bg-gray-300">
@@ -62,7 +101,7 @@ function Contact({ details }: Props) {
             </div>
             <div className="w-full px-4 mb-4 lg:w-1/2 lg:mb-0">
               <div className="py-12 px-4 text-center transition-all rounded-lg shadow-xl">
-                <form action="">
+                <form onSubmit={sendEnquiry}>
                   <div className="mb-6">
                     <h2 className="text-xl font-bold">
                       Leave {details?.title} a message!{" "}
@@ -70,17 +109,41 @@ function Contact({ details }: Props) {
                   </div>
                   <div className="flex flex-wrap mb-4 -mx-2">
                     <div className="w-full px-2 mb-4 lg:mb-0 lg:w-1/2">
-                        <Input type="text" name="name"  placeholder="Full Name.." />
+                      <Input
+                        value={formData.name}
+                        onChange={handleChange}
+                        type="text"
+                        name="name"
+                        placeholder="Full Name.."
+                      />
                     </div>
                     <div className="w-full px-2 lg:w-1/2">
-                        <Input type="email" name="email"  placeholder="Email" />
+                      <Input
+                        value={formData.email}
+                        onChange={handleChange}
+                        type="email"
+                        name="email"
+                        placeholder="Email.."
+                      />
                     </div>
                   </div>
                   <div className="mb-3">
-                    <Input type="text" name="subject"  placeholder="Subject" />
+                    <Input
+                      value={formData.subject}
+                      onChange={handleChange}
+                      type="text"
+                      name="subject"
+                      placeholder="Subject.."
+                    />
                   </div>
-                  <Textarea rows={2} name="message"  placeholder="Write a message..." />
-                  <Button> Send Message</Button>
+                  <Textarea
+                    value={formData.message}
+                    onChange={handleChange}
+                    rows={2}
+                    name="message"
+                    placeholder="Write a message..."
+                  />
+                  {loader ? <Spinner />  : <Button _type="norm">Send Messag</Button>}
                 </form>
               </div>
             </div>

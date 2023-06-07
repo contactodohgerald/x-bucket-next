@@ -1,9 +1,43 @@
-import React from "react";
+import React, { ChangeEvent, FormEvent, useState } from "react";
 import Input from "./Input";
 import Link from "next/link";
 import Image from "next/image";
+import Button from "./Button";
+import Spinner from "./Spinner";
+import { toast } from "react-toastify";
+import { newsletter } from "@/services/post.request";
 
 const Footer = () => {
+  const [loader, setLoader] = useState(false);
+  const [formData, setFormData] = useState({
+    email: ""
+  });
+  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
+    setFormData({
+      ...formData,
+      [event.target.name]: event.target.value,
+    });
+  };
+
+  const subscribeNewsLetter = async (e: FormEvent) => {
+    e.preventDefault()
+
+    if(formData.email == '') return toast.error('Email field can`t be empty')
+
+    setLoader(true)
+    await newsletter(formData)
+    .then((res) => {
+      toast.success(res.data.message)
+      setFormData({
+        email: ""
+      });
+    })
+    .catch((err) => {
+      toast.error(err.response.data.message)
+    })
+    .finally(() => setLoader(false))
+  }
+
   return (
     <>
       <section className="flex flex-col lg:justify-end font-poppins">
@@ -14,12 +48,18 @@ const Footer = () => {
                 <h2 className="mb-4 text-lg font-bold">
                   Newsletter
                 </h2>
-                <form method="Post" action="#" className="flex flex-wrap">
+                <form onSubmit={subscribeNewsLetter} className="flex flex-wrap">
                   <div className="w-full py-1 mb-2 lg:flex-1 lg:py-0 lg:mr-3 lg:mb-0">
-                    <Input type="email" name="email" placeholder="Your email" />
+                    <Input
+                        value={formData.email}
+                        onChange={handleChange}
+                        type="email"
+                        name="email"
+                        placeholder="Email.."
+                      />
                   </div>
                   <div className="w-full py-1 lg:w-auto lg:py-0">
-                    <button type="submit" className="w-full btn btn-outline">Subscribe</button>
+                    {loader ? <Spinner/> :  <Button _type="subscribe">Subscribe</Button>}
                   </div>
                 </form>
                 <div className="flex justify-center mt-5">
@@ -100,6 +140,7 @@ const Footer = () => {
                     className="dark:invert mb-5"
                     width={100}
                     height={24}
+                    style={{ width: 100, height: 24 }}
                     priority
                   />
               </Link>

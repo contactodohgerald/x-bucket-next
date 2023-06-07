@@ -1,12 +1,12 @@
 import React from "react";
 
 interface Props {
-    details?: {
-        title: string
-    }
+  details?: {
+    title: string;
+  };
 }
 
-function AboutUs({details}: Props) {
+function AboutUs({ details }: Props) {
   return (
     <>
       <section className="flex items-center ">
@@ -18,13 +18,28 @@ function AboutUs({details}: Props) {
                   About {details?.title}
                 </span>
                 <h2 className="mt-4 mb-6 text-2xl md:text-1xl font-bold text-gray-500">
-                    An AI Store Transforming Storytelling, Joke Telling, and Recipe Generation
+                  An AI Store Transforming Storytelling, Joke Telling, and
+                  Recipe Generation
                 </h2>
                 <p className="mb-3 text-gray-600 dark:text-gray-400 ">
-                    {details?.title} is an innovative AI store that offers a range of services powered by AI. With cutting-edge technology and natural language processing capabilities, {details?.title} harnesses the power of AI to provide unique and engaging experiences in the realms of storytelling, joke telling, and recipe generation. Let's explore how {details?.title} utilizes AI to revolutionize these creative domains.
+                  {details?.title} is an innovative AI store that offers a range
+                  of services powered by AI. With cutting-edge technology and
+                  natural language processing capabilities, {details?.title}{" "}
+                  harnesses the power of AI to provide unique and engaging
+                  experiences in the realms of storytelling, joke telling, and
+                  recipe generation. Let's explore how {details?.title} utilizes
+                  AI to revolutionize these creative domains.
                 </p>
                 <p className="mb-10 text-gray-600 dark:text-gray-400 ">
-                    {details?.title} is revolutionizing storytelling, joke telling, and recipe generation by harnessing the capabilities of AI. Through its AI store, {details?.title} brings forth a new era of creativity and entertainment, offering users the opportunity to experience captivating narratives, hilarious jokes, and innovative recipes. With  {details?.title}, the boundaries of human imagination and AI technology blend harmoniously, providing delightful experiences that inspire and entertain users worldwide.
+                  {details?.title} is revolutionizing storytelling, joke
+                  telling, and recipe generation by harnessing the capabilities
+                  of AI. Through its AI store, {details?.title} brings forth a
+                  new era of creativity and entertainment, offering users the
+                  opportunity to experience captivating narratives, hilarious
+                  jokes, and innovative recipes. With {details?.title}, the
+                  boundaries of human imagination and AI technology blend
+                  harmoniously, providing delightful experiences that inspire
+                  and entertain users worldwide.
                 </p>
               </div>
             </div>
@@ -48,7 +63,14 @@ function AboutUs({details}: Props) {
                     Storytelling
                   </h2>
                   <p className="text-base leading-loose text-gray-500 dark:text-gray-400">
-                    {details?.title}'s storytelling service takes users on captivating journeys through the power of AI-generated narratives. Users provide prompts or story outlines, and {details?.title}'s intelligent algorithms generate imaginative and intriguing stories. Whether it's a thrilling adventure, a heartwarming tale, or a sci-fi epic, {details?.title} brings the art of storytelling to life in a completely new and immersive way.
+                    {details?.title}'s storytelling service takes users on
+                    captivating journeys through the power of AI-generated
+                    narratives. Users provide prompts or story outlines, and{" "}
+                    {details?.title}'s intelligent algorithms generate
+                    imaginative and intriguing stories. Whether it's a thrilling
+                    adventure, a heartwarming tale, or a sci-fi epic,{" "}
+                    {details?.title} brings the art of storytelling to life in a
+                    completely new and immersive way.
                   </p>
                 </div>
               </div>
@@ -71,7 +93,13 @@ function AboutUs({details}: Props) {
                     Joke Telling
                   </h2>
                   <p className="text-base leading-loose text-gray-500 dark:text-gray-400">
-                    Humor is an essential part of our lives, and {details?.title}'s joke telling service is here to deliver laughter. {details?.title} generates humorous jokes that are sure to tickle your funny bone. Whether you need a quick laugh or want to lighten the mood, {details?.title}'s AI-powered jokes are tailored to bring joy and amusement to users.
+                    Humor is an essential part of our lives, and{" "}
+                    {details?.title}'s joke telling service is here to deliver
+                    laughter. {details?.title} generates humorous jokes that are
+                    sure to tickle your funny bone. Whether you need a quick
+                    laugh or want to lighten the mood, {details?.title}'s
+                    AI-powered jokes are tailored to bring joy and amusement to
+                    users.
                   </p>
                 </div>
               </div>
@@ -93,7 +121,14 @@ function AboutUs({details}: Props) {
                     Recipe Generation
                   </h2>
                   <p className="text-base leading-loose text-gray-500 dark:text-gray-400">
-                    {details?.title} also explores the culinary domain with its recipe generation service. Users can provide ingredient preferences or dietary restrictions, and {details?.title}'s AI algorithms, generate unique and creative recipes. From delectable desserts to savory main courses, {details?.title}'s recipe generation offers culinary inspiration and innovative twists that can impress even the most discerning food enthusiasts.
+                    {details?.title} also explores the culinary domain with its
+                    recipe generation service. Users can provide ingredient
+                    preferences or dietary restrictions, and {details?.title}'s
+                    AI algorithms, generate unique and creative recipes. From
+                    delectable desserts to savory main courses, {details?.title}
+                    's recipe generation offers culinary inspiration and
+                    innovative twists that can impress even the most discerning
+                    food enthusiasts.
                   </p>
                 </div>
               </div>

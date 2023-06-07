@@ -3,6 +3,7 @@ import Button from "./Layouts/Button";
 import Spinner from "./Layouts/Spinner";
 import { subscribeUser } from "@/services/post.request";
 import { toast } from "react-toastify";
+import Image from "next/image";
 
 interface Props {
   details?: {
@@ -11,23 +12,23 @@ interface Props {
 }
 
 function Pricing({ details }: Props) {
-  const [loader, setLoader] = useState(false)
+  const [loader, setLoader] = useState(false);
   const formData = {
     trans_id: "4293578",
-    amount: 300
-  }
+    amount: 300,
+  };
   const processSubscription = async (e: FormEvent) => {
-    e.preventDefault()
-    setLoader(true)
+    e.preventDefault();
+    setLoader(true);
     await subscribeUser(formData)
-    .then((res) => {
-      toast.success(res.data.message)
-    })
-    .catch((err) => {
-      toast.error(err.response.data.message)
-    })
-    .finally(() => setLoader(false))
-  }
+      .then((res) => {
+        toast.success(res.data.message);
+      })
+      .catch((err) => {
+        toast.error(err.response.data.message);
+      })
+      .finally(() => setLoader(false));
+  };
   return (
     <>
       <section className="flex bg-gray-100">
@@ -57,8 +58,11 @@ function Pricing({ details }: Props) {
                 <div className="flex flex-col items-center border-b-2 border-orange-200  bg-gradient-to-r dark:from-gray-800 dark:to-gray-800 from-blue-100 to-gray-200 ">
                   <div className="relative w-full">
                     <div className="absolute inset-0 z-5 w-full h-full bg-green-900 opacity-40"></div>
-                    <img
-                      src="https://i.postimg.cc/NfNC77Dr/C4-D-018-10.jpg"
+                    <Image
+                      width={500}
+                      height={100}
+                      //style={{ width: 100, height: 100 }}
+                      src="/used/pricing.png"
                       alt=""
                       className="relative inset-0 z-0 object-cover w-full h-44"
                     />
@@ -78,9 +82,16 @@ function Pricing({ details }: Props) {
                   </div>
                   <div className="relative flex -mt-7">
                     <div className="z-5 flex items-center justify-center px-6 py-2 text-center rounded-md">
-                      <form onSubmit={processSubscription} className="dark:bg-gray-100 px-1 py-1 rounded-full">
+                      <form
+                        onSubmit={processSubscription}
+                        className="dark:bg-gray-100 px-1 py-1 rounded-full"
+                      >
                         {" "}
-                        {loader ? <Spinner/> :  <Button _type="norm">Proceed {" ->"}</Button>}
+                        {loader ? (
+                          <Spinner />
+                        ) : (
+                          <Button _type="norm">Proceed {" ->"}</Button>
+                        )}
                       </form>
                     </div>
                   </div>

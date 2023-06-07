@@ -27,8 +27,8 @@ function AboutUs({ details }: Props) {
                   natural language processing capabilities, {details?.title}{" "}
                   harnesses the power of AI to provide unique and engaging
                   experiences in the realms of storytelling, joke telling, and
-                  recipe generation. Let's explore how {details?.title} utilizes
-                  AI to revolutionize these creative domains.
+                  recipe generation. Let&apos;s explore how {details?.title}{" "}
+                  utilizes AI to revolutionize these creative domains.
                 </p>
                 <p className="mb-10 text-gray-600 dark:text-gray-400 ">
                   {details?.title} is revolutionizing storytelling, joke
@@ -63,11 +63,11 @@ function AboutUs({ details }: Props) {
                     Storytelling
                   </h2>
                   <p className="text-base leading-loose text-gray-500 dark:text-gray-400">
-                    {details?.title}'s storytelling service takes users on
+                    {details?.title}&apos;s storytelling service takes users on
                     captivating journeys through the power of AI-generated
                     narratives. Users provide prompts or story outlines, and{" "}
-                    {details?.title}'s intelligent algorithms generate
-                    imaginative and intriguing stories. Whether it's a thrilling
+                    {details?.title}&apos;s intelligent algorithms generate
+                    imaginative and intriguing stories. Whether its a thrilling
                     adventure, a heartwarming tale, or a sci-fi epic,{" "}
                     {details?.title} brings the art of storytelling to life in a
                     completely new and immersive way.
@@ -94,12 +94,12 @@ function AboutUs({ details }: Props) {
                   </h2>
                   <p className="text-base leading-loose text-gray-500 dark:text-gray-400">
                     Humor is an essential part of our lives, and{" "}
-                    {details?.title}'s joke telling service is here to deliver
-                    laughter. {details?.title} generates humorous jokes that are
-                    sure to tickle your funny bone. Whether you need a quick
-                    laugh or want to lighten the mood, {details?.title}'s
-                    AI-powered jokes are tailored to bring joy and amusement to
-                    users.
+                    {details?.title}&apos;s joke telling service is here to
+                    deliver laughter. {details?.title} generates humorous jokes
+                    that are sure to tickle your funny bone. Whether you need a
+                    quick laugh or want to lighten the mood, {details?.title}
+                    &apos;s AI-powered jokes are tailored to bring joy and
+                    amusement to users.
                   </p>
                 </div>
               </div>
@@ -123,12 +123,12 @@ function AboutUs({ details }: Props) {
                   <p className="text-base leading-loose text-gray-500 dark:text-gray-400">
                     {details?.title} also explores the culinary domain with its
                     recipe generation service. Users can provide ingredient
-                    preferences or dietary restrictions, and {details?.title}'s
-                    AI algorithms, generate unique and creative recipes. From
-                    delectable desserts to savory main courses, {details?.title}
-                    's recipe generation offers culinary inspiration and
-                    innovative twists that can impress even the most discerning
-                    food enthusiasts.
+                    preferences or dietary restrictions, and {details?.title}
+                    &apos;s AI algorithms, generate unique and creative recipes.
+                    From delectable desserts to savory main courses,{" "}
+                    {details?.title}&apos;s recipe generation offers culinary
+                    inspiration and innovative twists that can impress even the
+                    most discerning food enthusiasts.
                   </p>
                 </div>
               </div>

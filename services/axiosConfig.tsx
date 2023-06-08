@@ -1,7 +1,7 @@
 import axios from "axios";
 import { loggedInUser } from "./default";
 
-const baseURL = "http://127.0.0.1:8080/api/v1";
+const baseURL = "https://x-bucket.onrender.com/api/v1";
 
 const userLoggedIn = loggedInUser()
 

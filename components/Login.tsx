@@ -6,15 +6,13 @@ import Spinner from "./Layouts/Spinner";
 import { toast } from "react-toastify";
 import { login } from "@/services/post.request";
 import { loginStuffs } from "@/services/default";
-import Products from "./Products";
 
 function Login() {
-  const [isLoggedIn, setIsLoggedIn] = useState(false)
-  const [loader, setLoader] = useState(false)
+  const [loader, setLoader] = useState(false);
   const [formData, setFormData] = useState({
     xtifier: "",
-    password: ""
-  })
+    password: "",
+  });
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     setFormData({
       ...formData,
@@ -24,40 +22,36 @@ function Login() {
 
   const loginUser = async (e: FormEvent) => {
     e.preventDefault();
-    if(formData.xtifier == '') return toast.error('Xtifier can`t be empty')
+    if (formData.xtifier == "") return toast.error("Xtifier can`t be empty");
 
-    setLoader(true)
+    setLoader(true);
     await login(formData)
-    .then((res) => {
-      toast.success(res.data.message)
-      loginStuffs(JSON.stringify(res.data.data))
-      setTimeout(() => {
-        setIsLoggedIn(true)
-      }, 3000);
-      setFormData({
-        xtifier: "",
-        password: ""
-      });
-    })
-    .catch((err) => {
-      toast.error(err.response.data.message)
-    })
-    .finally(() => setLoader(false))
+      .then((res) => {
+        toast.success(res.data.message);
+        loginStuffs(JSON.stringify(res.data.data));
+        setTimeout(() => {
+          window.location.href = '/services'
+        }, 1500);
+        setFormData({
+          xtifier: "",
+          password: "",
+        });
+      })
+      .catch((err) => {
+        toast.error(err.response.data.message);
+      })
+      .finally(() => setLoader(false));
   };
 
   return (
     <>
-    {isLoggedIn ?  
-      <Products /> : 
       <section className="w-full bg-[url('/used/food-storytelling.png')] py-20">
-        <div className="hidden py-20 text-center lg:block">
-         
-        </div>
+        <div className="hidden py-20 text-center lg:block"></div>
         <div className="max-w-xl py-4 mx-auto p-4 lg:p-0">
           <div className="w-full shadow-lg bg-gray-50 dark:bg-gray-100 mt-11 lg:-mt-36 lg:full p-4 lg:p-7 rounded-3xl">
             <span className="flex justify-end mb-8">
               <Link
-                href={'register'}
+                href={"register"}
                 className="px-4 py-3 text-sm font-medium border border-gray-800 hover:bg-gray-500 hover:text-gray-100 rounded-lg"
               >
                 Register Account
@@ -85,14 +79,17 @@ function Login() {
                   />
                 </div>
                 <div className="mt-5">
-                  {loader ? <Spinner/> :  <Button _type="auth">Continue</Button>}
+                  {loader ? (
+                    <Spinner />
+                  ) : (
+                    <Button _type="auth">Continue</Button>
+                  )}
                 </div>
               </form>
             </div>
           </div>
         </div>
       </section>
-      }
     </>
   );
 }

@@ -70,7 +70,8 @@ function RecipeGenerate() {
         <Label htmlFor="answer">Your Food Recipe !!</Label>
         <ResultShower />
         <div className="text-center">
-          <Button _type="copy" onClick={() => copyAnswer(foodRecipeResult)}>Copy</Button>
+          {/* <Button _type="copy" onClick={() => copyAnswer(foodRecipeResult)}>Copy</Button> */}
+          <Button _type="copy">Copy</Button>
         </div>
       </div>
     </>

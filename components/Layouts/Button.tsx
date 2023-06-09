@@ -3,6 +3,7 @@ import React, { ReactNode } from "react";
 interface Props {
   children: ReactNode;
   _type: string;
+  
 }
 
 function Button({ children, _type, ...props }: Props) {

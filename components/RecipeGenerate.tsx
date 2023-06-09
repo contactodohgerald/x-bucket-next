@@ -2,11 +2,11 @@ import React, { ChangeEvent, FormEvent, useState } from "react";
 import Input from "./Layouts/Input";
 import Button from "./Layouts/Button";
 import Label from "./Layouts/Label";
-import Textarea from "./Layouts/Textarea";
 import { toast } from "react-toastify";
 import Spinner from "./Layouts/Spinner";
 import { foodRecipe } from "@/services/post.request";
 import AnswerDisplay from "@/services/displayAnswer";
+import { copyAnswer } from "@/services/default";
 
 function RecipeGenerate() {
   const [loader, setLoader] = useState(false)
@@ -67,9 +67,10 @@ function RecipeGenerate() {
           </div>
         </form>
         <div className="w-full my-3 border-b border-gray-400"></div>
-        <div>
-            <Label htmlFor="answer">Your Food Recipe !!</Label>
-            <ResultShower />
+        <Label htmlFor="answer">Your Food Recipe !!</Label>
+        <ResultShower />
+        <div className="text-center">
+          <Button _type="copy" onClick={() => copyAnswer(foodRecipeResult)}>Copy</Button>
         </div>
       </div>
     </>

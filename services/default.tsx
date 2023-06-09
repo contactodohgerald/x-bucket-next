@@ -1,5 +1,6 @@
 import axios from 'axios'
 import Cookies from 'js-cookie';
+import { toast } from 'react-toastify';
 
 export  const sitedetails = {
     title: "X-Bucket",
@@ -34,3 +35,10 @@ export const getUserIp = async () => {
     const res = await axios.get("https://api.ipify.org/?format=json");
     return res.data.ip;
 }
+
+export const copyAnswer = (answer: string): boolean => {
+    if (answer != "") return false
+    navigator.clipboard.writeText(answer);
+    toast.success('copied!!')
+    return true
+};
